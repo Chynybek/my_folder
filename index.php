@@ -1,46 +1,74 @@
 <?php include('include/config.php'); ?>
 <!DOCTYPE html>
 <html>
-<head>
+	<head>
 	<title>StrtWlk</title>
 	<link rel="icon" href="img/logopng.png">
 	<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/strtwlk.css">
 
-</head>
+	</head>
 
-<body>
+	<body>
 	<!-- HEADER -->
 	<?php include('templates/header.php'); ?>
 	
 	<!-- MENU -->
 	<?php include('templates/menu.php'); ?>
+	<?php echo "<br>";?>
 	
 	<!--content -->
-
-	<h2>About StrtWlk</h2>
-	<p>Strtwlk is a streetwear shop in Kyrgyzstan</p>
-	<img src="img/scriptonite.JPG">
-
-	<p class="caption">Scriptonite hoodie</p>
+	<br>Categories <br>
 	
-	 <!-- Advantages -->
-	<h2>Our shop's advantages</h2>
-	<ol>
-		<li>It's warm</li>
-		<li>It's stylish</li>
-		<li>It's unique</li>
-	</ol>
+	<!-- fetch 3 categories-->
+	<?php
+	$query = mysqli_query($sql, "SELECT * FROM category");
+	while($row = mysqli_fetch_assoc($query))
+		{
+		$category = $row['CategoryID'];
+		$categoryname =$row['CategoryName'];
+		echo $category; echo "-";echo $categoryname;
+		echo "<br>";
+		}?>
+	<br>"ID-NameID-Size-Category-colour-price"; <br>
 	
-	 <!-- Social Media -->
-	<h2>StrtWlk's social media</h2>
-	<p>Strtwlk has social media. Click on the links below to view the social medias </p>
-	<ul>
-		<li><a target="_blank" href="https://www.instagram.com/strtwlk.shop/">Instagram</a></li>
-		<li><a target="_blank" href="https://ylink.me/l/Mqve8FpP1yWy">Telegram</a></li>
-		<li><a target="_blank" href="https://ylink.me/l/mVWjPFP1Dr2O">WhatsApp</a></li>
-	</ul>
-
+	<!--fetch information about the product(parent table)-->
+	<?php
+	$query = mysqli_query($sql, "SELECT * FROM product");
+	while($row = mysqli_fetch_assoc($query))
+		{
+		$title = $row['ID'];
+		$name = $row['NameID'];
+		$size =$row['size'];
+		$category = $row['CategoryID'];
+		$colour = $row['ColourID'];
+		$price = $row['price(soms)'];
+		echo $title;echo "-"; echo $name;echo "-";echo $size; echo "-";echo $category;echo "-";echo $colour; echo"-"; echo $price;
+		echo "<br>";
+		}?>
+	
+	<!--fetch information about productname-->
+	<br>Name of a product<br>
+	<?php
+	$query = mysqli_query($sql, "SELECT * FROM productname");
+	while($row = mysqli_fetch_assoc($query))
+		{
+		$name = $row['NameID'];
+		$actualname =$row['NameName'];
+		echo $name;echo"-";echo $actualname;
+		echo "<br>";
+		}?>
+	<!--fetch information about colours-->
+	<br>Colours available
+	<?php
+	$query = mysqli_query($sql, "SELECT * FROM colour");
+	while($row = mysqli_fetch_assoc($query))
+		{
+		$colour = $row['ColourID'];
+		$colourName =$row['ColourName'];
+		echo $colour;echo"-";echo $colourName;
+		echo "<br>";
+		}?>
 	<!--footer -->
 	<?php include('templates/footer.php'); ?>
 </body>
