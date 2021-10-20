@@ -32,9 +32,10 @@
 		}?>
 	<br>"ID-NameID-Size-Category-colour-price"; <br>
 	
-	<!--fetch information about the product(parent table)-->
+	<!--fetch information about the product(parent table) and add an array-->
 	<?php
 	$query = mysqli_query($sql, "SELECT * FROM product");
+	$prodInfo =array();
 	while($row = mysqli_fetch_assoc($query))
 		{
 		$title = $row['ID'];
@@ -43,12 +44,20 @@
 		$category = $row['CategoryID'];
 		$colour = $row['ColourID'];
 		$price = $row['price(soms)'];
-		echo $title;echo "-"; echo $name;echo "-";echo $size; echo "-";echo $category;echo "-";echo $colour; echo"-"; echo $price;
-		echo "<br>";
-		}?>
+		
+		/*echo $title;echo "-"; echo $name;echo "-";echo $size; echo "-";echo $category;echo "-";echo $colour; echo"-"; echo $price;*/
 	
+		}
+	$i=0;
+	/*while($i < $title)
+		echo $title;
+		array_push($prodInfo, $title, $name, $size, $category, $colour, $price);
+		$i=$i+1;*/
+	$string =join("-",$prodInfo);
+	echo $string;
+		?>
 	<!--fetch information about productname-->
-	<br>Name of a product<br>
+	<br><br>Name of a product<br>
 	<?php
 	$query = mysqli_query($sql, "SELECT * FROM productname");
 	while($row = mysqli_fetch_assoc($query))
