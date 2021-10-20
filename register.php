@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-9"> <!-- tells the browser to use the utf-8 character encoding when translating machine code into human-readable text and vice versa to be displayed in the browser. -->
-		<title>Register</title>
+		<title>register</title>
 		<link rel="stylesheet"
 href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	</head>
@@ -10,8 +10,8 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 		<div class="container"> <!--provide a means to center and horizontally pad your site’s contents. -->
 			<div class="row">
 				<div class="col-md-12">
-					<h2>Register</h2>
-					<p>To create an account, fill this form.</p>
+					<h2>register</h2>
+					<p>to create an account fill this form.</p>
 					<form action="" method="post">
 						<div class="form-group">
 							<label>name</label>
